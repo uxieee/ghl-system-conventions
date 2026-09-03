@@ -116,6 +116,10 @@ attention. The order, with a confirmation gate between every step:
 4. **Each workflow in detail, one at a time** — trigger, steps, waits, exits. They check
    each before you move to the next.
 5. **Copy** — once the structure is settled.
+6. **The pre-build document** — the whole agreed design in one self-contained HTML file
+   (system map, one card per workflow, full copy appendix), approved before anything is
+   built. Say from the first reply that this is where the design lands, so nobody expects
+   a build to start from a chat.
 
 Present a layer, give your reasoning and recommendation, then stop and let them respond.
 A recommendation is welcome; a finished document they have to unpick is not.
@@ -183,11 +187,17 @@ GHL normalises tags to lowercase on write, so casing is not something to police.
 does *not* normalise is delimiters, word order, and synonyms — that's where duplicates
 actually come from.
 
-**Fields** — `snake_case` keys, and every field gets a real description in GHL.
+**Fields** — human-readable name, `snake_case` key, and every field gets a real
+description in GHL. Same split as custom values: the name is for the person picking it in a
+dropdown, the key is what automations reference.
 
-**Custom values** — `snake_case`. Every account constant lives here: business details,
-links, prices, review link, AI persona name. Copy and prompts reference the custom value
-so nothing has to be changed in twenty places.
+**Custom values** — the **name is human-readable** ("AI Persona Name", "Review Link");
+GHL derives the `snake_case` **key** from it, and the key is what you reference:
+`{{custom_values.ai_persona_name}}`. Name it for the human reading the picker, then use the
+key everywhere. Foldered values show in pickers as `folder.name`, so the folder is part of
+how it reads. Every account constant lives here: business details, links, prices, review
+link, AI persona name. Copy and prompts reference the custom value so nothing has to be
+changed in twenty places.
 
 **Opportunity cards** — `<something that describes the opportunity> - <Full Name>`, so
 the board is readable at a glance.
