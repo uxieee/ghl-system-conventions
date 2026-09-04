@@ -66,7 +66,7 @@ assets/example-prebuild-doc.html an approved worked example
 ## This repo is a mirror
 
 Published from the [uxie-ghl-factory](https://github.com/uxieee/uxie-ghl-factory) plugin's copy
-at every plugin release — currently **0.55.0**. Please open issues and pull requests
+at every plugin release — currently **0.56.0**. Please open issues and pull requests
 **there**; edits made here are overwritten on the next publish.
 
 ## License
