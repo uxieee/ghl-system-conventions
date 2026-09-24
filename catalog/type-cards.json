@@ -4447,25 +4447,63 @@
    },
    "fields": [
     {
-     "name": "objectKey",
+     "name": "type",
      "type": "string",
-     "required": false,
-     "default": "—",
-     "notes": "Custom object schema slug."
+     "required": true,
+     "default": "clear_custom_object_fields",
+     "notes": "Inner type, equal to the step type."
     },
     {
-     "name": "recordId",
+     "name": "key",
      "type": "string",
-     "required": false,
+     "required": true,
      "default": "—",
-     "notes": "Target record."
+     "notes": "The object's key, `custom_objects.<object>`."
     },
     {
      "name": "fields",
-     "type": "array of strings",
+     "type": "array of `{ fieldKey, value, dataType }",
+     "required": true,
+     "default": "[]",
+     "notes": "fieldKey` is the schema field's ID (not its fieldKey). Values are ignored: these are the fields to clear."
+    },
+    {
+     "name": "makeAssociation",
+     "type": "boolean",
+     "required": false,
+     "default": "true",
+     "notes": "Associate the record with the workflow's object."
+    },
+    {
+     "name": "associations",
+     "type": "array",
      "required": false,
      "default": "[]",
-     "notes": "Field keys to clear."
+     "notes": "Association labels, when the target is not the workflow's own object."
+    },
+    {
+     "name": "followers",
+     "type": "array of user ids",
+     "required": false,
+     "default": "[]"
+    },
+    {
+     "name": "owner",
+     "type": "user id",
+     "required": false,
+     "default": "—"
+    },
+    {
+     "name": "clearOwner",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
+    },
+    {
+     "name": "clearFollowers",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
     }
    ],
    "validator": "No validator registered. Publish enforcement absent at the bundle level.",
@@ -7331,25 +7369,63 @@
    },
    "fields": [
     {
-     "name": "objectKey",
+     "name": "type",
      "type": "string",
-     "required": false,
+     "required": true,
+     "default": "create_custom_object",
+     "notes": "Inner type, equal to the step type."
+    },
+    {
+     "name": "key",
+     "type": "string",
+     "required": true,
      "default": "—",
-     "notes": "Slug of the custom object schema, e.g. `pets`."
+     "notes": "The object's key, `custom_objects.<object>`."
     },
     {
      "name": "fields",
-     "type": "array of `{ key, value }",
-     "required": false,
+     "type": "array of `{ fieldKey, value, dataType }",
+     "required": true,
      "default": "[]",
-     "notes": "Record values, by field-key on the schema."
+     "notes": "fieldKey` is the schema field's ID (not its fieldKey). Values may be merge tags."
+    },
+    {
+     "name": "makeAssociation",
+     "type": "boolean",
+     "required": false,
+     "default": "true",
+     "notes": "Associate the record with the workflow's object."
     },
     {
      "name": "associations",
      "type": "array",
      "required": false,
-     "default": "—",
-     "notes": "Relationship binds, likely contact↔record."
+     "default": "[]",
+     "notes": "Association labels, when the target is not the workflow's own object."
+    },
+    {
+     "name": "followers",
+     "type": "array of user ids",
+     "required": false,
+     "default": "[]"
+    },
+    {
+     "name": "owner",
+     "type": "user id",
+     "required": false,
+     "default": "—"
+    },
+    {
+     "name": "clearOwner",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
+    },
+    {
+     "name": "clearFollowers",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
     }
    ],
    "validator": "No validator registered. Per `sniffs/bundle/validators.json` and `sniffs/bundle/validators-summary.json`, no `customObjectValidator` (or similar) exists. The publish step likely no-ops for this action; server validates at run time.",
@@ -18329,25 +18405,63 @@
    },
    "fields": [
     {
-     "name": "objectKey",
+     "name": "type",
      "type": "string",
-     "required": false,
-     "default": "—",
-     "notes": "Custom object schema slug."
+     "required": true,
+     "default": "update_custom_object",
+     "notes": "Inner type, equal to the step type."
     },
     {
-     "name": "recordId",
+     "name": "key",
      "type": "string",
-     "required": false,
+     "required": true,
      "default": "—",
-     "notes": "Either a static ID or a `{{handlebar}}` resolving to one."
+     "notes": "The object's key, `custom_objects.<object>`."
     },
     {
      "name": "fields",
-     "type": "array of `{ key, value }",
+     "type": "array of `{ fieldKey, value, dataType }",
+     "required": true,
+     "default": "[]",
+     "notes": "fieldKey` is the schema field's ID (not its fieldKey). Values may be merge tags."
+    },
+    {
+     "name": "makeAssociation",
+     "type": "boolean",
+     "required": false,
+     "default": "true",
+     "notes": "Associate the record with the workflow's object."
+    },
+    {
+     "name": "associations",
+     "type": "array",
      "required": false,
      "default": "[]",
-     "notes": "Field-by-field update payload."
+     "notes": "Association labels, when the target is not the workflow's own object."
+    },
+    {
+     "name": "followers",
+     "type": "array of user ids",
+     "required": false,
+     "default": "[]"
+    },
+    {
+     "name": "owner",
+     "type": "user id",
+     "required": false,
+     "default": "—"
+    },
+    {
+     "name": "clearOwner",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
+    },
+    {
+     "name": "clearFollowers",
+     "type": "boolean",
+     "required": false,
+     "default": "false"
     }
    ],
    "validator": "No validator registered. Per `sniffs/bundle/validators.json` and `sniffs/bundle/validators-summary.json`. Publish-time enforcement appears absent for this action.",
