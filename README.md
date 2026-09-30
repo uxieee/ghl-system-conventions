@@ -32,8 +32,8 @@ plugin, where it sits alongside the build engines and the internal MCP server.
 
 ## What it knows about GHL
 
-GoHighLevel's workflow vocabulary ships inside the skill: **530 step and trigger
-types** (149 native, the rest marketplace apps), each with its fields, allowed
+GoHighLevel's workflow vocabulary ships inside the skill: **533 step and trigger
+types** (152 native, the rest marketplace apps), each with its fields, allowed
 values, validator behaviour and a proof status — compiled from a corpus of recovered front-end
 source, captured traffic and live-account probes.
 
@@ -66,7 +66,7 @@ assets/example-prebuild-doc.html an approved worked example
 ## This repo is a mirror
 
 Published from the [uxie-ghl-factory](https://github.com/uxieee/uxie-ghl-factory) plugin's copy
-at every plugin release — currently **1.35.1**. Please open issues and pull requests
+at every plugin release — currently **1.35.2**. Please open issues and pull requests
 **there**; edits made here are overwritten on the next publish.
 
 ## License
