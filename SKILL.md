@@ -162,6 +162,12 @@ These hold regardless of the build.
   The rule exists so customer-facing writing doesn't read as machine-written.
 - **It has to read like a human wrote it.** If only an AI would phrase it that way,
   rewrite it.
+- **A text message asks for one thing.** Keep it short enough to read on a lock screen, lead with the reason the
+  person is getting it, and end on one clear next step. Use the first name only when the record has a real one.
+- **A cold email leads with the reader's problem, not the sender's offer.** One ask, low friction (a yes or no
+  question, not a meeting link and a deck). Personalize only with something true that the record shows.
+- **Cut the filler.** Drop openers that announce what is coming, stacked hedges, and closing lines that only praise the
+  reader. Say the thing once, in plain words.
 
 **AI**
 - **The AI persona name lives in a custom value** and is referenced everywhere — copy,
@@ -188,7 +194,7 @@ These hold regardless of the build.
   per parallel system). Each folder is its own numbering sequence (see above).
 
 **Tags** — `namespace:value`, lowercase, hyphens inside multi-word values.
-GHL normalises tags to lowercase on write, so casing is not something to police. What it
+GHL lower-cases tags on write (measured: corpus `workflows/30-types/triggers/contact_tag.md` and `workflows/30-types/steps/if_else.md`), so write them lower-case and do not rely on case to tell two tags apart. What it
 does *not* normalise is delimiters, word order, and synonyms — that's where duplicates
 actually come from.
 
@@ -228,7 +234,7 @@ first "yes":
 6. Otherwise → a note, or nothing.
 
 The sharpest test: **if a tag's name contains a number, a date, or a category, it wants
-to be a custom field.**
+to be a custom field.** Keep the fields in a folder: `create_custom_field_folder` makes one (a write; confirm the name first).
 
 **Tags are deliberate.** Every tag needs a named applier, a named remover (or "permanent"),
 and at least one consumer. A tag that duplicates what a pipeline stage or a field already
@@ -386,6 +392,20 @@ are the default and prose is the support.
 
 Full spec is in `references/build-doc-spec.md`, and an approved worked example ships at
 `assets/example-prebuild-doc.html` — match it rather than reinventing the format.
+
+## Calendar features that are UI-only in W9
+
+These calendar and event features have no tool in W9. Do them in the GHL UI and tell the user; do not try to author, toggle or read them through a tool. Each row cites the backlog row that tracks it.
+
+| Feature | Where in the GHL UI | Status |
+|---|---|---|
+| **Event list and event detail** (the events list and an event's detail page) | Calendars → Events | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Event tickets, sold-out state** | Event → Tickets | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Event admin templates** (font pairing, date and name copy) | Event → Admin template | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Event sponsors and ads** | Event → Sponsors and ads | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Event errors** (the copy shown when an event action fails) | Event pages | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Staff badges** (team member badges and where a badge is assigned) | Settings → Team → badges | no tool in W9; do it in the GHL UI; backlog bl-995 |
+| **Calendar AI assistant** (the AI assistant on the calendar) | Calendars → AI assistant | no tool in W9; do it in the GHL UI; backlog bl-995 |
 
 ## References
 
